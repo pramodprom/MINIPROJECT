@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search Results</title>
+    <style>
+        /* Reset and Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f7f7f7;
+            color: #333;
+            font-size: 14px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Main Container */
+        main {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Search Results Section */
+        .search-results {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Restaurant Card Styling */
+        .restaurant-card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .restaurant-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .restaurant-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .restaurant-card .card-content {
+            padding: 15px;
+        }
+
+        .restaurant-card h3 {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .restaurant-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .restaurant-card .rating {
+            font-weight: bold;
+            color: #ff6f61;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .no-results {
+            text-align: center;
+            font-size: 18px;
+            color: #ff6f61;
+            margin-top: 50px;
+        }
+
+        /* Search Bar (header section) */
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            background-image: url(https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png);
+            height: 27px;
+            width: 126.9px;
+            background-size: contain;
+            cursor: pointer;
+        }
+
+        .nav-search {
+            width: 70%;
+            margin: 0 auto;
+            max-width: 700px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-search input {
+            width: 80%;
+            border: none;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .nav-search button {
+            background-color: #ff6f61;
+            border: none;
+            padding: 8px;
+            font-size: 14px;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .nav-search button:hover {
+            background-color: #e75d50;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Logo Section -->
+    <div class="nav-logo">
+        <div class="logo"></div>
+    </div>
+
+    <!-- Search Bar Section -->
+    <div class="nav-search">
+        <form method="GET" action="/search" style="width: 100%;">
+            <input type="text" name="query" class="input-food" placeholder="Search for restaurant, cuisine or a dish" required>
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass" style="color: #fff;"></i>
+            </button>
+        </form>
+    </div>
+</header>
+
+<main>
+    <h2>Search Results for "{{ query }}"</h2>
+
+    {% if results %}
+    <div class="search-results">
+        {% for restaurant in results %}
+        <div class="restaurant-card">
+            <a href="{{ url_for('restaurant_details', restaurant_id=restaurant.id) }}">
+                <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}">
+                <div class="card-content">
+                    <h3>{{ restaurant.name }}</h3>
+                    <p>Cuisine: {{ restaurant.cuisine }}</p>
+                    <p>Rating: <span class="rating">{{ restaurant.rating }}</span></p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="no-results">No results found for "{{ query }}".</p>
+    {% endif %}
+</main>
+
+</body>
+</html>

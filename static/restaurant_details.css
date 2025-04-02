@@ -1,0 +1,474 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.header {
+    position: relative;
+    background-size: fill;
+    background-position: center;
+    background-repeat: repeat;
+    height: 200px; /* Adjust the height as needed */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for better readability */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for a polished look */
+    width: 80%; /* Adjust to control overlay width */
+    max-width: 800px; /* Limit the maximum width */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add subtle text shadow for contrast */
+}
+
+.header p {
+    font-size: 1.25rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Consistent with the header */
+    margin-top: 10px; /* Add spacing */
+}
+
+
+.menu-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.menu-categories {
+    width: 25%;
+    background-color: #fff;
+    padding: 15px;
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-categories h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.menu-categories ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-categories li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+}
+
+.menu-categories li:hover {
+    background-color: #eee;
+}
+
+.menu-items {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-items h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.menu-category {
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.menu-item p {
+    margin: 0;
+    color: #333;
+}
+
+.add-menu-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.add-menu-section a {
+    padding: 10px 20px;
+    background-color: #f6f6f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.add-menu-section a:hover {
+    background-color: #555;
+}
+
+@media (max-width: 768px) {
+    .menu-categories {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .menu-items {
+        width: 100%;
+    }
+}
+/* General styles for the menu items */
+.menu-item {
+    border: 1px solid #ddd; /* Light border for each menu item */
+    padding: 15px;
+    margin-bottom: 20px; /* Space between items */
+    border-radius: 8px; /* Rounded corners */
+    transition: transform 0.2s, background-color 0.2s; /* Smooth transitions for hover effects */
+    cursor: pointer; /* Pointer cursor to indicate clickability */
+    background-color: #fff; /* White background */
+}
+
+/* Style for the menu item when hovered */
+.menu-item:hover {
+    transform: scale(1.03); /* Slightly enlarge the item on hover */
+    background-color: #f0f0f0; /* Change the background color on hover */
+}
+
+/* Style for the menu item name */
+.menu-item p {
+    font-size: 18px;
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Set the font for the item name */
+}
+
+/* Style for the price and description */
+.menu-item p:nth-child(2), .menu-item p:nth-child(3) {
+    font-size: 16px;
+    color: #555; /* Slightly gray color for description and price */
+}
+
+/* Style for the menu item image */
+.menu-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    margin-top: 10px; /* Space between text and image */
+}
+
+/* Style for the menu category (optional) */
+.menu-category h4 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+/*Footer*/
+
+footer {
+    width: 100%;
+    background: rgb(248, 248, 248);
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.sec1 {
+    max-width: 1100px;
+    width: 1100px;
+    padding: 48px 0 22px;
+    position: relative;
+}
+
+.sec1 .sec2 img {
+    height: 28px;
+    width: 132px;
+}
+
+.sec1 .sec2 .sec2-emp {
+    margin-top: 12px;
+}
+
+.sec1 .sec2 .selector .India {
+    width: 93.7px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 3px 7px;
+    border: 1px solid rgb(181, 181, 181);
+    border-radius: 6px;
+}
+
+.sec1 .sec2 .selector .India img {
+    width: 22px;
+    height: 14px;
+}
+
+.sec1 .sec2 .selector .India p {
+    font-size: 18px;
+    color: #1c1c1c;
+}
+
+.sec1 .sec2 .selector .India .fa-chevron-down {
+    color: #000000;
+    width: 15px;
+    height: 15px;
+}
+
+.sec1 .sec2 .selector .English {
+    width: 107px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 7px;
+    border: 1px solid rgb(181, 181, 181);
+    border-radius: 6px;
+}
+
+.sec1 .sec2 .selector .English .fa-globe {
+    color: #000000;
+    height: 18px;
+    width: 18px;
+    font-size: 17px;
+}
+
+.sec1 .sec2 .selector .English p {
+    font-size: 18px;
+    line-height: 2px;
+    color: rgb(28, 28, 28);
+    margin: 2px 5px 0 8px;
+    font-weight: 400;
+}
+
+.sec1 .sec2 .selector {
+    display: flex;
+    width: 252px;
+    height: 38px;
+    justify-content: space-between;
+}
+
+.sec1 .sec2 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.main-footer .foot1 {
+    position: relative;
+    width: 100%;
+    max-width: 18.3333%;
+    padding: 0px;
+}
+
+.main-footer h6 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin: 0px 0px 12px;
+}
+
+.main-footer  a {
+    text-decoration: none;
+}
+
+.main-footer  a p {
+    font-size: 14px;
+    line-height: 21px;
+    color: rgb(105, 105, 105);
+    margin: 5px 0px;
+}
+
+.main-footer .foot3-1 {
+    margin-bottom: 30px;
+}
+
+.main-footer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.main-footer .foot5 .icons a {
+    text-decoration: none;
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.main-footer .foot5 .icons {
+    display: flex;
+    justify-content: flex-start;
+    height: 22px;
+    width: 201px;
+}
+
+.main-footer .foot5 .blank1 {
+    margin-top: 24px;
+}
+
+.main-footer .foot5 .store .storeimg {
+    position: relative;
+    max-width: 100%;
+    width: 137px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.main-footer .foot5 .store img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-footer .foot5 .store .blank2 {
+    margin-top: 12px;
+}
+
+.h-line {
+    border-width: 1px 0 0;
+    margin-top: 50px;
+    border-top-style: solid;
+    border-top-color: rgb(207, 207, 207);
+}
+
+.copyright {
+    font-size: 13px;
+    color: rgb(79, 79, 79);
+    line-height: 17px;
+    margin-top: 23px;
+}
+.back-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.back-btn:hover {
+    transform: translateY(-5px);
+    background-color: #0056b3;
+}
+
+.back-btn i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+.add-to-cart {
+    padding: 10px 20px;
+    background-color: #007BFF; /* Primary blue */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    width: 120px;
+    height: 40px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-cart:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-3px);
+}
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;400&display=swap');
+
+/* Apply to the body */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 300;
+    color: #333; /* Neutral color for readability */
+    line-height: 1.6;
+}
+
+/* Header styles */
+.header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* Bold for prominence */
+    font-size: 3rem; /* Adjusted for better visibility */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.header p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+}
+
+/* Menu categories */
+.menu-categories h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.menu-categories li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Menu item styles */
+.menu-item p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    color: #555;
+}
+
+/* Footer styles */
+footer h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+footer a p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: rgb(105, 105, 105);
+}
+
+/* Buttons */
+button, .add-to-cart, .back-btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}

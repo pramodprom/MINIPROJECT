@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+/* Add hover effect for the card */
+.restaurant-card:hover {
+    transform: scale(1.05); /* Slight zoom */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Deeper shadow for hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Add subtle border effect */
+.restaurant-card {
+    border: 1px solid #f0f0f0;
+    background: linear-gradient(to bottom right, #ffffff, #f9f9f9); /* Subtle gradient background */
+    overflow: hidden;
+}
+
+/* Add hover effect to the image */
+.restaurant-card img {
+    transition: transform 0.3s ease; /* Smooth zoom on hover */
+}
+
+.restaurant-card:hover img {
+    transform: scale(1.1); /* Slight zoom for image */
+}
+</style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <div class="logo"></div>
+            </div>
+
+            <!-- Search Form -->
+            <div class="nav-search">
+    <form method="GET" action="/search">
+        <div class="search-food">
+            <input type="text" name="query" class="input-food" placeholder="Search for restaurant, cuisine or a dish" required>
+            <button class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        </div>
+    </form>
+</div>
+
+
+            <div class="user-login" style="display: flex; align-items: center; gap: 10px;">
+    {% if 'email' in session %}
+        <div class="user-profile" style="display: flex; align-items: center; gap: 10px;">
+            <div style="display: flex; align-items: center; background: linear-gradient(90deg, #f0f4ff, #e0eaff); padding: 10px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <i class="fa-solid fa-user" style="color: #007bff; font-size: 24px; margin-right: 12px;"></i>
+    <span style="font-size: 18px; color: #333; font-weight: 500;">{{ session['email'] }}</span>
+</div>
+
+            <a href="{{ url_for('logout') }}" class="logout-btn"
+               style="background-color: #ff6f61; color: white; padding: 6px 15px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-decoration: none; transition: background-color 0.3s ease;">
+                Log out
+            </a>
+        </div>
+    {% else %}
+        <a href="{{ url_for('login') }}" class="login-link">Log In</a>
+        <a href="{{ url_for('signup') }}" class="signup-link">Sign Up</a>
+    {% endif %}
+</div>
+
+
+        </div>
+    </header>
+{% if 'email' in session and session['email'] == 'hemanthbubby007@gmail.com' %}
+    <div style="text-align: center; margin: 20px;">
+        <a href="{{ url_for('admin_dashboard') }}"
+           style="background-color: #007bff; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 16px;">
+            Go to Admin
+        </a>
+    </div>
+{% endif %}
+
+    <!-- Filters Section -->
+    <section class="filter">
+        <div class="filter-sec">
+    <div class="filter-item icon-list">
+        <!-- Dropdown for Ratings -->
+        <div class="dropdown">
+            <button class="dropbtn">Rating</button>
+            <div class="dropdown-content">
+                <a href="#" data-rating="4.5">4.5+</a>
+                <a href="#" data-rating="4.0">4.0+</a>
+                <a href="#" data-rating="3.5">3.5+</a>
+                <a href="#" data-rating="3.0">3.0+</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+
+        </div>
+    </section>
+
+    <div class="hero1">
+        <div class="main-hero">
+            <h3>Top Brand Restaurants in Bengaluru</h3>
+            <section class="carousel">
+                <section class="heroFirst">
+                    <div class="space">
+                        <div class="main-con">
+                            <a href="/restaurant/2">
+                            <div class="img-hero1">
+                                <img src="/static/images/nandhana.png"
+                                    alt="Nandhana">
+                            </div>
+                            <p>Nandhana Palace</p></a>
+                        </div>
+                    </div>
+                </section>
+                <section class="heroFirst">
+                    <div class="space">
+                        <div class="main-con">
+                            <a href="/restaurant/3">
+                            <div class="img-hero1">
+                                <img src="/static/images/nandhini.jpg"
+                                     alt="Nandhini">
+                            </div>
+                           <p>Nandhini Dulex</p></a>
+                        </div>
+                    </div>
+                </section>
+                <section class="heroFirst">
+                    <div class="space">
+                        <div class="main-con">
+                            <a href="/restaurant/4">
+                            <div class="img-hero1">
+                                <img src="/static/images/nagarjuna.png"
+                                     alt="Nagarjuna">
+                            </div>
+                            <p>Nagarjuna</p></a>
+                        </div>
+                    </div>
+                </section>
+                <section class="heroFirst">
+                    <div class="space">
+                        <div class="main-con">
+                            <a href="/restaurant/5">
+                            <div class="img-hero1">
+                                <img src="/static/images/sharief bhai.jpg"
+                                    alt="Sharief Bhai">
+                            </div>
+                            <p>Sharief Bhai</p></a>
+                        </div>
+                    </div>
+                </section>
+                <section class="heroFirst">
+                    <div class="space">
+                        <div class="main-con">
+                            <a href="/restaurant/1">
+                            <div class="img-hero1">
+                                <img src="/static/images/meghanas.png"
+                                    alt="ITC">
+                            </div>
+                            <p>Meghana's Food</p></a>
+                        </div>
+                    </div>
+                </section>
+                <section class="heroFirst">
+                    <div class="space">
+                        <div class="main-con">
+                            <a href="/restaurant/6">
+                            <div class="img-hero1">
+                                <img src="static/images/jwm.png"
+                                    alt="JW Marriott">
+                            </div>
+                            <p>JW Marriott</p></a>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+<div id="restaurant-container" style="
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 15px;">
+    {% for restaurant in restaurants %}
+<div class="restaurant-card" data-rating="{{ restaurant.rating }}" style="
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-family: Arial, sans-serif;
+    background-color: #fff;">
+    <div style="position: relative;">
+        <a href="{{ url_for('restaurant_details', restaurant_id=restaurant.id) }}" style="text-decoration: none; color: inherit;">
+            <div style="height: 200px; overflow: hidden;">
+                <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" style="width: 100%; height: 100%; object-fit: fill;">
+            </div>
+            <div style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 0, 0, 0.8); color: white; padding: 5px 10px; font-size: 12px; border-radius: 5px;">
+                <p>50% OFF up to ₹100</p>
+            </div>
+        </a>
+    </div>
+    <a href="{{ url_for('restaurant_details', restaurant_id=restaurant.id) }}" style="text-decoration: none; color: inherit;">
+        <div style="padding: 15px;">
+            <h4 style="margin: 0; font-size: 18px; font-weight: bold;">{{ restaurant.name }}</h4>
+            <div style="display: flex; align-items: center; margin: 5px 0;">
+                <p style="margin: 0; font-size: 14px; font-weight: bold; color: #ff9900;">{{ restaurant.rating }}</p>
+                <i class="fa-solid fa-star" style="margin-left: 5px; color: #ff9900;"></i>
+            </div>
+            <div style="margin: 10px 0;">
+                <p style="margin: 0; font-size: 14px; color: #555;">{{ restaurant.cuisine }}</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endfor %}
+    <a href="/cart" class="view-cart-btn" style="position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px;">
+            View Cart
+        </a>
+</div>
+
+
+
+    <footer>
+        <div class="sec1">
+            <section class="sec2">
+                <img src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png?fit=around|198:42&crop=198:42;*,*" alt="">
+                <div class="sec2-emp"></div>
+                <section class="selector">
+                    <div class="India">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAsVBMVEX/mTMSiAf/////mjH//fv6+/cAgwAAAIgAAIUAAIMAAIAAAH4AAHvu7vfe3u7Hx+AAAHb5+f20tNb39/1LS6Ghocrk5PGSksSDg7utrdEAAHLMzOS+vtxSUqRERJzX1+oQEI1ERKMvL5Z/f7d5ebaYmManp88bG5JkZK/JyeEiIpFoaKqMjL9ycrSzs9uVlctYWKI3N5tgYKw6OpoeHo8YGJEsLJYAAJAbG5lYWKkmJpLm9FjFAAAEl0lEQVR4nO3ba3PiNhiGYaoeJB9kg0/YsbEg5rQkaUtINk3+/w/rK0OyDS/tTL9YmeG5Zgin/SDuNZYRZjQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiffoZzo1/g3EjAOTTh0IRDEw5NuK/QpGjKu8XT5mlxVzaF68GIL9CkuJ8HvqeUknTx/GB+H7kekuMmdRZ4Utogvu/bLFJ6QVu7HZTTJsXMtxHU9iHMClNk4cNW2UR+5vQt5LLJym4Znj8VqWi0MEI3dGtKbySqsnI4LndNJjOfXnuXt1rE9v7v9k8sdJt31MqfTZyNzFkTvfOkak3/ytf2zx8ftyamVdLbaVdDc9VEz+llB/lxE4ntVLOkS3S8K3La86q5qyiOmkx2lCQvtUgruqen9GdLl6nNUKVClzlFeXP09nHUZOZJP+lv5XaKWdDlz9N1kfePN770Zm4G56bJil7wWjT97Ve6bCnMgXJsT/cpiVhTNjezj5MmEc04QXnarea0XaxWIt2k9kqs+82EnikDmn2cHNM6aZIp1dpdx2Rr9xiSjk1uhaarWyNSKU6P62mrVOZieC6axP77BpDuqUy1EGmotad1mIoFzcZ6n/bP0ubkxw7G56IJ/f+XadxPKoWkOCoRm1yHOt+IRFEKeTyyj9OSticH43PQxNAOlmbgvD8+i/xaJMGka4tx0XYiqETtG/uE3a9UtJs1ww/QQZOOXqmddKOZrfItTIS8a4IojILmTooktG+XambfXAuqVw4/QAdNnqS3Oh6i5nPaXpJxHo8jr36pvWgcr8d02JI8HydhvfLk0/ADHL4J7Tnn7weoOntJRH7TLMsymSVluWxucpHM2/elgsncxXQ8fJO1p7aTOGmOm0rlb+IkjPZ1VVb1PgqTbzu/6p/RcRJPHtXp3pCGb0KTid1HmOnrY04fiyfbcWduTdfu2858N914m9IH4/X29d78+MfDGr5JpmR4POqIVptgv4yjbm/afj02M/ulibuDP58e3zFxKB0ctg3f5E2p2ccqQJEfQlWapSctb2nuVXi7+lh51DOl3gYf4fBNaNpJP+6kuqhNnR9U30QdVrGpC/2P511MPMM3eZYqMk01ffz+EtzcjMnLw14eHcoX+wA9LP/Kujw2kZKbwUeI7YTD/oT7IvNOdt3zzr8fn5RXe3xS4TiWweedC/C5mPu8fhJj/UScrbMZrLP16ANfd7Ye+3xxPba7mvXY/1y3b/t1++PuhvbGwbWs2+P7nQs+fw+4xveAFr4vvgDnFXCTN5x/wuA8pQtwPtsFx/MelxfOe1xe63mPAufHXoTzqC/B+faXFPfPn36X8Xz1v8vo9b/f2W12+P3O14UmHJpwaMKhCTf6Fc6NfoNzo5/gHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCfc3xgk4+urIdocAAAAASUVORK5CYII=" alt="">
+                        <p>India</p>
+                        <i class="fa-solid fa-chevron-down" style="color: #000000;"></i>
+                    </div>
+                    <div class="English">
+                        <i class="fa-solid fa-globe" style="color: #000000;"></i>
+                        <p>English</p>
+                        <i class="fa-solid fa-chevron-down" style="color: #000000;"></i>
+                    </div>
+                </section>
+            </section>
+            <div class="main-footer">
+                <div class="foot1">
+                    <h6>ABOUT ZOMATO</h6>
+                    <nav>
+                        <a href="{{ url_for('aboutus') }}"><p>Who We Are</p></a>
+                        <a href="#"><p>Blog</p></a>
+                        <a href="#"><p>Work With Us</p></a>
+                        <a href="#"><p>Investor Relations</p></a>
+                        <a href="#"><p>Report Fraud</p></a>
+                        <a href="#"><p>Contact Us</p></a>
+                    </nav>
+                </div>
+                <div class="foot2">
+                    <h6>ZOMAVERSE</h6>
+                    <nav>
+                        <a href="#"><p>Zomato</p></a>
+                        <a href="#"><p>Blinkit</p></a>
+                        <a href="#"><p>Feeding India</p></a>
+                        <a href="#"><p>Hyperpure</p></a>
+                        <a href="#"><p>Zomaland</p></a>
+                    </nav>
+                </div>
+                <div class="foot3">
+                    <div class="foot3-1">
+                        <h6>FOR RESTAURANTS</h6>
+                        <nav>
+                            <a href="#"><p>Partner With Us</p></a>
+                            <a href="#"><p>Apps For You</p></a>
+                        </nav>
+                    </div>
+                    <div class="foot3-2">
+                        <h6>FOR ENTERPRISES</h6>
+                        <nav>
+                            <a href="#"><p>Zomato For Enterprise</p></a>
+                        </nav>
+                    </div>
+                </div>
+                <div class="foot4">
+                    <h6>LEARN MORE</h6>
+                    <nav>
+                        <a href="#"><p>Privacy</p></a>
+                        <a href="#"><p>Security</p></a>
+                        <a href="#"><p>Terms</p></a>
+                        <a href="#"><p>Sitemap</p></a>
+                    </nav>
+                </div>
+                <div class="foot5">
+                    <h6>SOCIAL LINKS</h6>
+                    <div class="icons">
+                        <a href="#"><i class="fa-brands fa-linkedin" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook" style="color: #000000;"></i></a>
+                    </div>
+                    <div class="blank1"></div>
+                    <section class="store">
+                        <a href="#">
+                            <div class="storeimg">
+                                <img src="https://b.zmtcdn.com/data/webuikit/9f0c85a5e33adb783fa0aef667075f9e1556003622.png" alt="App store">
+                            </div>
+                        </a>
+                        <div class="blank2"></div>
+                        <a href="#">
+                            <div class="storeimg">
+                                <img src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png" alt="Playstore">
+                            </div>
+                        </a>
+                    </section>
+                </div>
+            </div>
+            <hr class="h-line">
+            <p class="copyright">By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. 2008-2023 © Zomato™ Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+<script>
+    document.querySelectorAll('.dropdown-content a').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const selectedRating = parseFloat(this.getAttribute('data-rating'));
+
+            console.log(`Selected Rating: ${selectedRating}`); // Debugging line
+
+            // Fetch filtered restaurants
+            fetch(`/filter_rating?rating=${selectedRating}`)
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Filtered Data:', data); // Debugging line
+                    const container = document.getElementById('restaurant-container');
+                    container.innerHTML = ''; // Clear the current restaurant cards
+
+                    // Create new restaurant cards
+                    data.forEach(restaurant => {
+                        const card = `
+                            <div class="restaurant-card" data-rating="${restaurant.rating}" style="
+                                width: 300px;
+                                border: 1px solid #ddd;
+                                border-radius: 10px;
+                                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                                overflow: hidden;
+                                transition: transform 0.3s;
+                                font-family: Arial, sans-serif;">
+                                <div style="position: relative;">
+                                    <a href="/restaurant/${restaurant.id}" style="text-decoration: none; color: inherit;">
+                                        <div style="height: 200px; overflow: hidden;">
+                                            <img src="${restaurant.image_url}" alt="${restaurant.name}" style="width: 100%; height: 100%; object-fit: cover;">
+                                        </div>
+                                    </a>
+                                </div>
+                                <a href="/restaurant/${restaurant.id}" style="text-decoration: none; color: inherit;">
+                                    <div style="padding: 15px;">
+                                        <h4>${restaurant.name}</h4>
+                                        <p>${restaurant.rating} <i class="fa-solid fa-star" style="color: #ff9900;"></i></p>
+                                        <p>${restaurant.cuisine}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        `;
+                        container.innerHTML += card;
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    });
+</script>
+
+
+
+
+
+</body>
+
+</html>

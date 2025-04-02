@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .checkout-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-group button:hover {
+            background-color: #e75d50;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            margin-top: 20px;
+            text-align: center;
+            border-radius: 4px;
+            border: 1px solid #c3e6cb;
+        }
+
+        .upi-qr-container {
+            text-align: center;
+        }
+
+        .upi-qr-container img {
+            max-width: 200px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        /*Footer*/
+
+footer {
+    width: 100%;
+    background: rgb(248, 248, 248);
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.sec1 {
+    max-width: 1100px;
+    width: 1100px;
+    padding: 48px 0 22px;
+    position: relative;
+}
+
+.sec1 .sec2 img {
+    height: 28px;
+    width: 132px;
+}
+
+.sec1 .sec2 .sec2-emp {
+    margin-top: 12px;
+}
+
+.sec1 .sec2 .selector .India {
+    width: 93.7px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 3px 7px;
+    border: 1px solid rgb(181, 181, 181);
+    border-radius: 6px;
+}
+
+.sec1 .sec2 .selector .India img {
+    width: 22px;
+    height: 14px;
+}
+
+.sec1 .sec2 .selector .India p {
+    font-size: 18px;
+    color: #1c1c1c;
+}
+
+.sec1 .sec2 .selector .India .fa-chevron-down {
+    color: #000000;
+    width: 15px;
+    height: 15px;
+}
+
+.sec1 .sec2 .selector .English {
+    width: 107px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 7px;
+    border: 1px solid rgb(181, 181, 181);
+    border-radius: 6px;
+}
+
+.sec1 .sec2 .selector .English .fa-globe {
+    color: #000000;
+    height: 18px;
+    width: 18px;
+    font-size: 17px;
+}
+
+.sec1 .sec2 .selector .English p {
+    font-size: 18px;
+    line-height: 2px;
+    color: rgb(28, 28, 28);
+    margin: 2px 5px 0 8px;
+    font-weight: 400;
+}
+
+.sec1 .sec2 .selector {
+    display: flex;
+    width: 252px;
+    height: 38px;
+    justify-content: space-between;
+}
+
+.sec1 .sec2 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.main-footer .foot1 {
+    position: relative;
+    width: 100%;
+    max-width: 18.3333%;
+    padding: 0px;
+}
+
+.main-footer h6 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin: 0px 0px 12px;
+}
+
+.main-footer  a {
+    text-decoration: none;
+}
+
+.main-footer  a p {
+    font-size: 14px;
+    line-height: 21px;
+    color: rgb(105, 105, 105);
+    margin: 5px 0px;
+}
+
+.main-footer .foot3-1 {
+    margin-bottom: 30px;
+}
+
+.main-footer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.main-footer .foot5 .icons a {
+    text-decoration: none;
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.main-footer .foot5 .icons {
+    display: flex;
+    justify-content: flex-start;
+    height: 22px;
+    width: 201px;
+}
+
+.main-footer .foot5 .blank1 {
+    margin-top: 24px;
+}
+
+.main-footer .foot5 .store .storeimg {
+    position: relative;
+    max-width: 100%;
+    width: 137px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.main-footer .foot5 .store img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-footer .foot5 .store .blank2 {
+    margin-top: 12px;
+}
+
+.h-line {
+    border-width: 1px 0 0;
+    margin-top: 50px;
+    border-top-style: solid;
+    border-top-color: rgb(207, 207, 207);
+}
+
+.copyright {
+    font-size: 13px;
+    color: rgb(79, 79, 79);
+    line-height: 17px;
+    margin-top: 23px;
+}
+        .back-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.back-btn:hover {
+    transform: translateY(-5px);
+    background-color: #0056b3;
+}
+
+.back-btn i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+
+        <!-- Display Cart Items -->
+        <div class="cart-items">
+            <h3>Confirm Your Order</h3>
+            {% if cart_items %}
+    {% for item in cart_items %}
+    <div class="cart-item">
+        <span>{{ item.name }}</span>
+        <span>₹{{ item.price }} x {{ item.quantity }}</span>
+    </div>
+    {% endfor %}
+    <div class="cart-total">
+        <strong>Total: ₹{{ total }}</strong>
+    </div>
+{% else %}
+    <p>No items in cart.</p>
+{% endif %}
+
+        </div>
+
+        <!-- Checkout Form -->
+        <form id="checkout-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="landmark">Landmark</label>
+                <input type="text" id="landmark" name="landmark">
+            </div>
+            <div class="form-group">
+                <label for="payment_method">Payment Method</label>
+                <select id="payment_method" name="payment_method" required onchange="togglePaymentDetails()">
+                    <option value="">Select a Payment Method</option>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="debit_card">Debit Card</option>
+                    <option value="upi">UPI</option>
+                    <option value="cash_on_delivery">Cash on Delivery</option>
+                </select>
+            </div>
+
+            <!-- Credit Card Details -->
+            <div id="credit-card-details" class="hidden">
+                <div class="form-group">
+                    <label for="credit_card_number">Card Number</label>
+                    <input type="text" id="credit_card_number" name="credit_card_number" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="form-group">
+                    <label for="credit_expiry_date">Expiry Date</label>
+                    <input type="month" id="credit_expiry_date" name="credit_expiry_date">
+                </div>
+                <div class="form-group">
+                    <label for="credit_cvv">CVV</label>
+                    <input type="text" id="credit_cvv" name="credit_cvv" placeholder="123">
+                </div>
+            </div>
+
+            <!-- Debit Card Details -->
+            <div id="debit-card-details" class="hidden">
+                <div class="form-group">
+                    <label for="debit_card_number">Card Number</label>
+                    <input type="text" id="debit_card_number" name="debit_card_number" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="form-group">
+                    <label for="debit_expiry_date">Expiry Date</label>
+                    <input type="month" id="debit_expiry_date" name="debit_expiry_date">
+                </div>
+                <div class="form-group">
+                    <label for="debit_cvv">CVV</label>
+                    <input type="text" id="debit_cvv" name="debit_cvv" placeholder="123">
+                </div>
+            </div>
+
+            <!-- UPI Payment Details -->
+            <div id="upi-details" class="hidden">
+                <div class="upi-qr-container">
+                    <label for="upi_qr">Scan the QR Code to Pay</label>
+                    <img src="/static/upi.png" alt="UPI QR Code">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="button" onclick="submitOrder()">Place Order</button>
+            </div>
+        </form>
+        <div id="success-message">Your order is successful!</div>
+    </div>
+     <section class="back-to-index-section" style="text-align: center; margin-top: 20px;">
+     <a href="/" class="back-btn">
+    <i class="fa fa-arrow-left"></i> Back
+</a>
+     </section>
+<footer>
+        <div class="sec1">
+            <section class="sec2">
+                <img src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png?fit=around|198:42&crop=198:42;*,*" alt="">
+                <div class="sec2-emp"></div>
+                <section class="selector">
+                    <div class="India">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAsVBMVEX/mTMSiAf/////mjH//fv6+/cAgwAAAIgAAIUAAIMAAIAAAH4AAHvu7vfe3u7Hx+AAAHb5+f20tNb39/1LS6Ghocrk5PGSksSDg7utrdEAAHLMzOS+vtxSUqRERJzX1+oQEI1ERKMvL5Z/f7d5ebaYmManp88bG5JkZK/JyeEiIpFoaKqMjL9ycrSzs9uVlctYWKI3N5tgYKw6OpoeHo8YGJEsLJYAAJAbG5lYWKkmJpLm9FjFAAAEl0lEQVR4nO3ba3PiNhiGYaoeJB9kg0/YsbEg5rQkaUtINk3+/w/rK0OyDS/tTL9YmeG5Zgin/SDuNZYRZjQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiffoZzo1/g3EjAOTTh0IRDEw5NuK/QpGjKu8XT5mlxVzaF68GIL9CkuJ8HvqeUknTx/GB+H7kekuMmdRZ4Utogvu/bLFJ6QVu7HZTTJsXMtxHU9iHMClNk4cNW2UR+5vQt5LLJym4Znj8VqWi0MEI3dGtKbySqsnI4LndNJjOfXnuXt1rE9v7v9k8sdJt31MqfTZyNzFkTvfOkak3/ytf2zx8ftyamVdLbaVdDc9VEz+llB/lxE4ntVLOkS3S8K3La86q5qyiOmkx2lCQvtUgruqen9GdLl6nNUKVClzlFeXP09nHUZOZJP+lv5XaKWdDlz9N1kfePN770Zm4G56bJil7wWjT97Ve6bCnMgXJsT/cpiVhTNjezj5MmEc04QXnarea0XaxWIt2k9kqs+82EnikDmn2cHNM6aZIp1dpdx2Rr9xiSjk1uhaarWyNSKU6P62mrVOZieC6axP77BpDuqUy1EGmotad1mIoFzcZ6n/bP0ubkxw7G56IJ/f+XadxPKoWkOCoRm1yHOt+IRFEKeTyyj9OSticH43PQxNAOlmbgvD8+i/xaJMGka4tx0XYiqETtG/uE3a9UtJs1ww/QQZOOXqmddKOZrfItTIS8a4IojILmTooktG+XambfXAuqVw4/QAdNnqS3Oh6i5nPaXpJxHo8jr36pvWgcr8d02JI8HydhvfLk0/ADHL4J7Tnn7weoOntJRH7TLMsymSVluWxucpHM2/elgsncxXQ8fJO1p7aTOGmOm0rlb+IkjPZ1VVb1PgqTbzu/6p/RcRJPHtXp3pCGb0KTid1HmOnrY04fiyfbcWduTdfu2858N914m9IH4/X29d78+MfDGr5JpmR4POqIVptgv4yjbm/afj02M/ulibuDP58e3zFxKB0ctg3f5E2p2ccqQJEfQlWapSctb2nuVXi7+lh51DOl3gYf4fBNaNpJP+6kuqhNnR9U30QdVrGpC/2P511MPMM3eZYqMk01ffz+EtzcjMnLw14eHcoX+wA9LP/Kujw2kZKbwUeI7YTD/oT7IvNOdt3zzr8fn5RXe3xS4TiWweedC/C5mPu8fhJj/UScrbMZrLP16ANfd7Ye+3xxPba7mvXY/1y3b/t1++PuhvbGwbWs2+P7nQs+fw+4xveAFr4vvgDnFXCTN5x/wuA8pQtwPtsFx/MelxfOe1xe63mPAufHXoTzqC/B+faXFPfPn36X8Xz1v8vo9b/f2W12+P3O14UmHJpwaMKhCTf6Fc6NfoNzo5/gHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCYcmHJpwaMKhCfc3xgk4+urIdocAAAAASUVORK5CYII=" alt="">
+                        <p>India</p>
+                        <i class="fa-solid fa-chevron-down" style="color: #000000;"></i>
+                    </div>
+                    <div class="English">
+                        <i class="fa-solid fa-globe" style="color: #000000;"></i>
+                        <p>English</p>
+                        <i class="fa-solid fa-chevron-down" style="color: #000000;"></i>
+                    </div>
+                </section>
+            </section>
+            <div class="main-footer">
+                <div class="foot1">
+                    <h6>ABOUT ZOMATO</h6>
+                    <nav>
+                        <a href="#"><p>Who We Are</p></a>
+                        <a href="#"><p>Blog</p></a>
+                        <a href="#"><p>Work With Us</p></a>
+                        <a href="#"><p>Investor Relations</p></a>
+                        <a href="#"><p>Report Fraud</p></a>
+                        <a href="#"><p>Contact Us</p></a>
+                    </nav>
+                </div>
+                <div class="foot2">
+                    <h6>ZOMAVERSE</h6>
+                    <nav>
+                        <a href="#"><p>Zomato</p></a>
+                        <a href="#"><p>Blinkit</p></a>
+                        <a href="#"><p>Feeding India</p></a>
+                        <a href="#"><p>Hyperpure</p></a>
+                        <a href="#"><p>Zomaland</p></a>
+                    </nav>
+                </div>
+                <div class="foot3">
+                    <div class="foot3-1">
+                        <h6>FOR RESTAURANTS</h6>
+                        <nav>
+                            <a href="#"><p>Partner With Us</p></a>
+                            <a href="#"><p>Apps For You</p></a>
+                        </nav>
+                    </div>
+                    <div class="foot3-2">
+                        <h6>FOR ENTERPRISES</h6>
+                        <nav>
+                            <a href="#"><p>Zomato For Enterprise</p></a>
+                        </nav>
+                    </div>
+                </div>
+                <div class="foot4">
+                    <h6>LEARN MORE</h6>
+                    <nav>
+                        <a href="#"><p>Privacy</p></a>
+                        <a href="#"><p>Security</p></a>
+                        <a href="#"><p>Terms</p></a>
+                        <a href="#"><p>Sitemap</p></a>
+                    </nav>
+                </div>
+                <div class="foot5">
+                    <h6>SOCIAL LINKS</h6>
+                    <div class="icons">
+                        <a href="#"><i class="fa-brands fa-linkedin" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook" style="color: #000000;"></i></a>
+                    </div>
+                    <div class="blank1"></div>
+                    <section class="store">
+                        <a href="#">
+                            <div class="storeimg">
+                                <img src="https://b.zmtcdn.com/data/webuikit/9f0c85a5e33adb783fa0aef667075f9e1556003622.png" alt="App store">
+                            </div>
+                        </a>
+                        <div class="blank2"></div>
+                        <a href="#">
+                            <div class="storeimg">
+                                <img src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png" alt="Playstore">
+                            </div>
+                        </a>
+                    </section>
+                </div>
+            </div>
+            <hr class="h-line">
+            <p class="copyright">By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. 2008-2023 © Zomato™ Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        function togglePaymentDetails() {
+            const paymentMethod = document.getElementById('payment_method').value;
+            const creditCardDetails = document.getElementById('credit-card-details');
+            const debitCardDetails = document.getElementById('debit-card-details');
+            const upiDetails = document.getElementById('upi-details');
+
+            // Hide all payment sections initially
+            creditCardDetails.classList.add('hidden');
+            debitCardDetails.classList.add('hidden');
+            upiDetails.classList.add('hidden');
+
+            if (paymentMethod === 'credit_card') {
+                creditCardDetails.classList.remove('hidden');
+            } else if (paymentMethod === 'debit_card') {
+                debitCardDetails.classList.remove('hidden');
+            } else if (paymentMethod === 'upi') {
+                upiDetails.classList.remove('hidden');
+            }
+        }
+
+        function submitOrder() {
+            const form = document.getElementById('checkout-form');
+            if (form.checkValidity()) {
+                const successMessage = document.getElementById('success-message');
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                    window.location.href = '/'; // Redirect to homepage or desired page
+                }, 5000);
+            } else {
+                form.reportValidity(); // Show validation errors
+            }
+        }
+    </script>
+</body>
+</html>
