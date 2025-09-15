@@ -12,7 +12,7 @@ This is a **Zomato Clone** — a simplified version of the popular food delivery
 - **Order Confirmation:** Users receive confirmation once the order is placed.
 
 ### 🛠 Technologies Used
-- **Backend:** Django framework
+- **Backend:** Flack framework
 - **Database:** SQLite (for storing user data, restaurants, menus, and orders)
 - **Frontend:** HTML, CSS, and JavaScript
 - **Authentication:** Django’s built-in user authentication system
