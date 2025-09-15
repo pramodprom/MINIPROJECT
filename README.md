@@ -33,18 +33,17 @@ This is a **Zomato Clone** — a simplified version of the popular food delivery
 ### 📸 Screenshots
 
 #### Restaurant Listing
-![Login Page](pscreenshots/home.png.png)
+![Login Page](shots/home.png)
 
 #### Restaurant Menu page
-![Restaurant Listing](pscreenshots/menu.png.png)
+![Restaurant Listing](shots/menu.png)
 
 #### Cart
-![Menu Page](pscreenshots/cart.png.png)
+![Menu Page](shots/cart.png)
 
 #### Checkout Page
-![Order Confirmation](pscreenshots/checkout.png.png)
+![Order Confirmation](shots/checkout.png)
 
-> Make sure to replace the image paths like `screenshots/login.png` with the correct file paths where your screenshots are saved in the project.
 
 ### 🚀 Future Enhancements
 - Add payment gateway integration.
