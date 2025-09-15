@@ -12,10 +12,9 @@ This is a **Zomato Clone** — a simplified version of the popular food delivery
 - **Order Confirmation:** Users receive confirmation once the order is placed.
 
 ### 🛠 Technologies Used
-- **Backend:** Django framework
+- **Backend:** Flask framework
 - **Database:** SQLite (for storing user data, restaurants, menus, and orders)
-- **Frontend:** HTML, CSS, and JavaScript
-- **Authentication:** Django’s built-in user authentication system
+- **Frontend:** HTML, CSS, and JavaScript.
 
 ### 🔍 How It Works
 1. The user signs up or logs into the application.
@@ -24,25 +23,27 @@ This is a **Zomato Clone** — a simplified version of the popular food delivery
 4. Menu items can be selected and added to an order.
 5. The user can place the order, and an order confirmation is displayed.
 
-### 📂 Project Structure
-- `models.py`: Contains database models for restaurants, menu items, and orders.
-- `views.py`: Handles application logic such as listing restaurants and placing orders.
-- `templates/`: Contains HTML templates for rendering pages.
-- `static/`: Contains CSS and JavaScript files for styling and interactivity.
-
 ### 📸 Screenshots
 
+
 #### Restaurant Listing
-![Login Page](shots/home.png)
+![Home Page](shots/home.png)
+
+Home page has the top restaurants listed with  offters/discounts
+
 
 #### Restaurant Menu page
 ![Restaurant Listing](shots/menu.png)
 
+Menu Page lists the items in that particular Restaurants along with the price
+
 #### Cart
-![Menu Page](shots/cart.png)
+![Cart Page](shots/cart.png)
+
+
 
 #### Checkout Page
-![Order Confirmation](shots/checkout.png)
+![Checkout](shots/checkout.png)
 
 
 ### 🚀 Future Enhancements
@@ -52,5 +53,3 @@ This is a **Zomato Clone** — a simplified version of the popular food delivery
 - Deploy the project to a live server.
 
 ---
-
-Feel free to explore, modify, and expand this project to enhance your understanding of web development using Django!
