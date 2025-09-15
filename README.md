@@ -12,7 +12,7 @@ This is a **Zomato Clone** — a simplified version of the popular food delivery
 - **Order Confirmation:** Users receive confirmation once the order is placed.
 
 ### 🛠 Technologies Used
-- **Backend:** Flack framework
+- **Backend:** Django framework
 - **Database:** SQLite (for storing user data, restaurants, menus, and orders)
 - **Frontend:** HTML, CSS, and JavaScript
 - **Authentication:** Django’s built-in user authentication system
@@ -29,6 +29,22 @@ This is a **Zomato Clone** — a simplified version of the popular food delivery
 - `views.py`: Handles application logic such as listing restaurants and placing orders.
 - `templates/`: Contains HTML templates for rendering pages.
 - `static/`: Contains CSS and JavaScript files for styling and interactivity.
+
+### 📸 Screenshots
+
+#### Login Page
+![Login Page](screenshots/login.png)
+
+#### Restaurant Listing
+![Restaurant Listing](screenshots/restaurant_list.png)
+
+#### Menu Page
+![Menu Page](screenshots/menu.png)
+
+#### Order Confirmation
+![Order Confirmation](screenshots/order_confirmation.png)
+
+> Make sure to replace the image paths like `screenshots/login.png` with the correct file paths where your screenshots are saved in the project.
 
 ### 🚀 Future Enhancements
 - Add payment gateway integration.
